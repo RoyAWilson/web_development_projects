@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"name": "web_development_projects",
+			"path": "."
+		},
+		{
+			"name": "Day_41",
+			"path": "Day_41"
+		},
+		{
+			"name": "2_2_Paragraph_Element",
+			"path": "2_2_Paragraph_Element"
+		},
+		{
+			"name": "2_1_Heading_Element",
+			"path": "2_1_Heading_Element"
+		},
+		{
+			"name": "2_3Void_Elements",
+			"path": "2_3Void_Elements"
+		},
+		{
+			"name": "Ptoj_Fave_Films",
+			"path": "Ptoj_Fave_Films"
+		}
+	]
+}
