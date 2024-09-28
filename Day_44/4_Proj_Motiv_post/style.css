@@ -1,0 +1,31 @@
+#img{
+    text-align: center;
+    margin-top: 30px;
+}
+img{
+    border: 3px solid white;
+    width: 70%;
+}
+body{
+    background-color: darkblue;
+}
+h1{
+    text-transform: uppercase;;
+    color: white;
+    text-align: center;
+    font-family: "Times New Roman" serif;
+    font-size: 20pt;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman' serif;
+    font-size: 15pt;
+}
+p{
+    font-family:'algerian';
+    text-align: center;
+    font-size: 12pt;
+    color: red;
+    font-weight: 700;
+}
