@@ -1,7 +1,12 @@
+'''
+BeautifulSoup intro
+'''
+
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get('https://appbrewery.github.io/news.ycombinator.com/')
+response = requests.get(
+    'https://appbrewery.github.io/news.ycombinator.com/', timeout=5.0)
 response.raise_for_status()
 yc_webpage = response.text
 
