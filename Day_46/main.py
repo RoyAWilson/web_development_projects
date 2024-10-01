@@ -6,8 +6,12 @@ https://www.billboard.com/charts/hot-100/1981-06-27/
 '''
 
 import re
+import os
+from dotenv import load_dotenv
 import requests
 from bs4 import BeautifulSoup
+
+load_dotenv()
 
 # Get the releveant date and form the request url; ensure that cannot enter rediculous numbers
 # not sure about exactly how to go about easily checking that date falls within correct number
@@ -40,9 +44,9 @@ def check_url(url_to_check) -> bool:
     Check if the URL is good or not.
     '''
     # Damn! The site doesn't seem to care about out of bounds dates.
-    # Take to a date before or after they have data for and brings up
+    # Request a date before or after they have data for and brings up
     # a random year for the day and month entered!
-    response = requests.get(url=url_to_check, timeout=5.0)
+    response: str = requests.get(url=url_to_check, timeout=5.0)
     response.raise_for_status()
     if response.status_code == 200:
         return True
@@ -52,23 +56,32 @@ def check_url(url_to_check) -> bool:
 
 def get_html(url_to_soup) -> str:
     '''
-    arguments url_to_soup - should be a URL
+    arguments url_to_soup - should be an URL
     returns string
     To get URL contents with bs4
     '''
-    cont_to_scrape = requests.get(url=url_to_soup, timeout=5.0)
+    cont_to_scrape: str = requests.get(url=url_to_soup, timeout=5.0)
     soup = BeautifulSoup(cont_to_scrape.text, 'html.parser')
     return soup
 
 
-# Check all working and returning sensible data
-URL = get_url()
-print(URL)
-GOOD = check_url(url_to_check=URL)
-print(GOOD)
-contents = get_html(URL)
-print(contents)
+def get_titles(all_content: str) -> list:
+    '''
+    Grab the titles of the songs in the top 100
+    argument all_content str
+    returns list
+    '''
+    song_names_spans: str = all_content.select("li ul li h3")
+    song_names: list = [song.getText().strip() for song in song_names_spans]
+    return song_names
 
-# TODO get a list of the top 100
-# TODO pass contents to spotify API
-# TODO set up playlist
+
+URL: str = get_url()
+GOOD: bool = check_url(url_to_check=URL)
+if GOOD is True:
+    contents: str = get_html(URL)
+    titles = get_titles(contents)
+    print(titles)
+else:
+    print('Sorry there has  been an error!\nLet\'s try again\n')
+    get_url()
