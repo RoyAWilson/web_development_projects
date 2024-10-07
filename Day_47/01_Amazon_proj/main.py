@@ -23,7 +23,7 @@ HEADERS: dict = {
     'Sec-Fetch-Mode': 'navigate',
     'Sec-Fetch-Site': 'none',
     'Sec-Fetch-User': '?1',
-    'Upgrage-Insecure-Requests': '1',
+    'Upgrade-Insecure-Requests': '1',
 }
 
 contents: str = requests.get(url=URL, timeout=5.0, headers=HEADERS)
