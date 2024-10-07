@@ -6,5 +6,7 @@ Day_46/.env
 Day_46/token.txt
 Day_47/01_practice_proj/test.py
 Day_47/01_practice_proj/session.pickle
-
 Day_47/01_practice_proj/.env
+Day_47/01_Amazon_proj/.env
+Day_47/01_Amazon_proj/session.pickle
+Day_47/01_practice_proj/main.py
